@@ -18,7 +18,13 @@ return new class extends Migration
             $table->string('company', 30);
             $table->string('departure_station', 50);
             $table->string('arrival_station', 50);
-            $table->
+            $table->date('date');
+            $table->time('departure_time');
+            $table->time('arrival_time');
+            $table->integer('train_code');
+            $table->unsignedtinyInteger('number_of_carriages');
+            $table->unsignedInteger('delay')->nullable()->default(null);
+            $table->boolean('deleted')->nullable()->default(false);
 
             $table->timestamps();
         });
@@ -31,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_trains');
+        Schema::dropIfExists('trains');
     }
 };
