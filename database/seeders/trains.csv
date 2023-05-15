@@ -1,0 +1,7 @@
+company,departure_station,arrival_station,date,departure_time,arrival_time,train_code,number_of_carriages,delay,deleted
+tranitalia,roma,milano,2022-11-23, 10:00:00,12:00:00,63852,8,0,0
+tranitalia,milano,napoli,2022-11-24, 10:00:00,12:00:00,23712,8,0,0
+tranitalia,napoli,roma,2022-11-25, 10:00:00,12:00:00,53325,8,0,0
+tranitalia,roma,milano,2022-11-26, 10:00:00,12:00:00,69037,10,0,0
+tranitalia,milano,napoli,2022-11-27, 10:00:00,12:00:00,10453,10,0,0
+tranitalia,napoli,roma,2022-11-28, 10:00:00,12:00:00,21132,10,0,0,0

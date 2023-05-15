@@ -16,6 +16,25 @@ class TrainsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        $data = self::getCsvContent(__DIR__ . '/trains.csv');
+
+        foreach($data as $index => $row){
+            if($index > 0){
+                $newTrain = new Train;
+                $newTrain->company = $row[0];
+                $newTrain->departure_station = $row[1];
+                $newTrain->arrival_station = $row[2];
+                $newTrain->date = $row[3];
+                $newTrain->departure_time = $row[4];
+                $newTrain->arrival_time = $row[5];
+                $newTrain->train_code = $row[6];
+                $newTrain->number_of_carriages = $row[7];
+                $newTrain->delay = $row[8];
+                $newTrain->deleted = $row[9];
+                $newTrain->save();
+            }
+        }
+
         for($i=0; $i < 10; $i++){
 
             $train = new Train();
@@ -31,6 +50,25 @@ class TrainsTableSeeder extends Seeder
             $train->deleted = false;
             $train->save();
         }
+
+    }
+
+    public static function getCsvContent(string $path){
+        
+        $data = [];
+
+        $file = fopen($path, 'r');
+
+        if($file === false){
+            echo 'File o percorso non valido';
+        }
+
+        while(($row = fgetcsv($file)) !== FALSE){
+            $data [] = $row;
+
+
+        }
+        return $data;
 
     }
 }
